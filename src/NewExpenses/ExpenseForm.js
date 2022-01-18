@@ -8,31 +8,44 @@ const ExpenseForm = () => {
     date: "",
   });
   const titleChangeHandler = (event) => {
-    setUserInput({
-        ...userInput,
+    // setUserInput({
+    //     ...userInput,
+    //     title: event.target.value,
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
         title: event.target.value,
-      
+      };
     });
   };
 
   const amountChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      amount: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   amount: event.target.value,
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
+        amount: event.target.value,
+      };
     });
   };
 
   const dateChangeHandler = (event) => {
-    setUserInput({
-      ...userInput,
-      date: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   date: event.target.value,
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
+        date: event.target.value,
+      };
     });
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     console.log(userInput);
-  
   };
   return (
     <div>
@@ -40,30 +53,15 @@ const ExpenseForm = () => {
         <div className="new-expense__controls">
           <div className="new-expense__control">
             <label>Title</label>
-            <input
-              name="title"
-              type="text"
-
-              onChange={titleChangeHandler}
-            />
+            <input name="title" type="text" onChange={titleChangeHandler} />
           </div>
           <div className="new-expense__control">
             <label>Amount</label>
-            <input
-              name="amount"
-              type="number"
-             
-              onChange={amountChangeHandler}
-            />
+            <input name="amount" type="number" onChange={amountChangeHandler} />
           </div>
           <div className="new-expense__control">
             <label>Date</label>
-            <input
-              name="date "
-              type="date"
-              
-              onChange={dateChangeHandler}
-            />
+            <input name="date " type="date" onChange={dateChangeHandler} />
           </div>
         </div>
         <div className="new-expense__actions">
